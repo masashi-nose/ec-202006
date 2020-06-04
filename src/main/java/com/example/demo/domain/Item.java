@@ -27,6 +27,9 @@ public class Item {
 	@Column(name = "price")
 	private Integer price;
 
+	@Column(name = "size")
+	private Integer size;
+
 	@Column(name = "image_path")
 	private String imagePath;
 
@@ -41,8 +44,9 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", itemName=" + itemName + ", price=" + price + ", imagePath=" + imagePath
-				+ ", categoryId=" + categoryId + ", description=" + description + ", deletedFlag=" + deletedFlag + "]";
+		return "Item [id=" + id + ", itemName=" + itemName + ", price=" + price + ", size=" + size + ", imagePath="
+				+ imagePath + ", categoryId=" + categoryId + ", description=" + description + ", deletedFlag="
+				+ deletedFlag + "]";
 	}
 
 	public Integer getId() {
@@ -67,6 +71,14 @@ public class Item {
 
 	public void setPrice(Integer price) {
 		this.price = price;
+	}
+
+	public Integer getSize() {
+		return size;
+	}
+
+	public void setSize(Integer size) {
+		this.size = size;
 	}
 
 	public String getImagePath() {
