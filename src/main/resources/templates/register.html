@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+	crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/ec202006.css}"
+	href="./css/ec202006.css">
+<title>Insert title here</title>
+
+</head>
+<body id="page_entry" class="registration_page">
+	<div class="container">
+		<header class="page-header">
+			<p>ロゴ</p>
+			<nav>
+				<ul class="main-nav">
+					<li>category</li>
+					<li>login</li>
+					<li>register</li>
+					<li>cart</li>
+
+				</ul>
+			</nav>
+		</header>
+		<br>
+
+		<!-- 以下main要素 -->
+		<div id="register-form">
+			<h2 class="page-heading">
+				<span>新規会員登録</span>
+			</h2>
+			<br>
+			<form method="post" action="" class="form-horizontal">
+
+
+				<dl class="row">
+					<dt class="form-group col-xs">
+						<span class="required">必須</span> <label class="col-form-label">お名前</label>
+					</dt>
+					<dd class="form-group col-xs">
+						<input type="text" id="name" name="name" required="required"
+							class="form-control" size="60" />
+					</dd>
+				</dl>
+
+
+				<dl class="row">
+					<dt class="form-group col-xs">
+						<span class="required">必須</span> <label class=" col-form-label">郵便番号</label>
+					</dt>
+					<dd class="form-group col-xs">
+						<div class="form-group form-inline input_zip">
+							<input type="text" id="zipcode" name="zipcode"
+								required="required" style="ime-mode: disabled;" pattern="\d*"
+								class="form-control" size="60"/>
+							&nbsp;<button>住所検索</button>
+						</div>
+					</dd>
+				</dl>
+
+				<dl class="row">
+					<dt class="form-group col-xs">
+						<span class="required">必須</span> <label class="col-form-label">住所</label>
+					</dt>
+					<dd class="form-group col-xs">
+
+
+						<input type="text" id="address" name="address" required="required"
+							style="ime-mode: active;" placeholder="市区町村名 (例：千代田区神田神保町)"
+							class="form-control" size="60"/>
+
+					</dd>
+				</dl>
+
+				<dl class="row">
+					<dt class="form-group col-xs">
+						<span class="required">必須</span> <label class="col-form-label">電話番号</label>
+					</dt>
+					<dd class="form-group col-xs">
+						<div class="form-inline form-group input_tel">
+							<input type="tel" id="tel" name="tel" required="required"
+								style="ime-mode: disabled;" class="form-control" size="60"/>
+
+						</div>
+					</dd>
+				</dl>
+
+				<dl class="row">
+					<dt class="form-group col-xs">
+						<span class="required">必須</span> <label class="col-form-label">メールアドレス</label>
+					</dt>
+					<dd class="form-group col-xs">
+						<div class="form-group ">
+							<input type="email" id="entry_email_first"
+								name="entry[email][first]" required="required"
+								class="form-control" size="60"/>
+
+						</div>
+					</dd>
+				</dl>
+
+				<dl class="row">
+					<dt class="form-group col-xs">
+						<span class="required">必須</span> <label class="col-form-label">パスワード</label>
+					</dt>
+					<dd class="form-group col-xs">
+						<div class="form-group ">
+							<input type="password" id="entry_password_first"
+								name="entry[password][first]" required="required"
+								placeholder="半角英数字記号8～32文字" class="form-control" size="60"/>
+
+						</div>
+					</dd>
+				</dl>
+				<dl class="row">
+					<dt class="form-group">
+						<span class="required form-group col-xs-2">必須</span> <label
+							class="col-form-label col-xs-2">確認用パスワード</label>
+					</dt>
+					<dd class="form-group col-xs-8">
+
+						<input type="password" id="entry_password_second"
+							name="entry[password][second]" required="required"
+							placeholder="確認のためもう一度入力してください" class="form-control" size="60"/>
+
+					</dd>
+				</dl>
+		</div>
+		
+		<div><button type="submit" class="register" >登録する</button></div><br>
+		<div><button type="reset" class="reset" >入力内容を削除する</button></div>
+
+
+
+
+		
+		</form>
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+		crossorigin="anonymous"></script>
+
+</body>
+</html>
