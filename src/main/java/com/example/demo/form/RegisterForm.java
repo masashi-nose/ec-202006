@@ -1,5 +1,11 @@
 package com.example.demo.form;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.NumberFormat;
+
 /**
  * 登録画面からパラメータを受け取るフォーム
  * 
@@ -9,32 +15,47 @@ package com.example.demo.form;
 public class RegisterForm {
 
 	/** 名前 */
-	private String name;
+	@NotBlank(message = "名前の入力は必須です。")
+	private String userName;
+	
 	/** 郵便番号 */
+	@NotBlank(message = "郵便番号の入力は必須です。")
+	@Size(max = 7)
 	private String zipcode;
+	
 	/** 住所 */
+	@NotBlank(message = "住所の入力は必須です。")
 	private String address;
+	
 	/** 電話番号 */
+	@NotBlank(message = "電話番号の入力は必須です。")
 	private String tel;
+	
 	/** メールアドレス */
+	@NotBlank(message = "メールアドレスの入力は必須です。")
+	@Email(message = "メールアドレスの形式が不正です。")
 	private String email;
+	
 	/** パスワード */
+	@NotBlank(message = "パスワードの入力は必須です。")
 	private String password;
+	
 	/** 確認用パスワード */
+	@NotBlank(message = "確認用パスワードの入力は必須です。")
 	private String confirmPassword;
 
 	@Override
 	public String toString() {
-		return "RegisterForm [name=" + name + ", zipcode=" + zipcode + ", address=" + address + ", tel=" + tel
+		return "RegisterForm [userName=" + userName + ", zipcode=" + zipcode + ", address=" + address + ", tel=" + tel
 				+ ", email=" + email + ", password=" + password + ", confirmPassword=" + confirmPassword + "]";
 	}
 
-	public String getName() {
-		return name;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getZipcode() {

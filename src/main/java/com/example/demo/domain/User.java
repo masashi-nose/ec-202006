@@ -3,6 +3,7 @@ package com.example.demo.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,7 +18,7 @@ import javax.persistence.Table;
 public class User {
 
 	@Id
-	@GeneratedValue	//主キー生成
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // 主キー生成
 	@Column(name = "id")
 	private Integer id;
 
@@ -39,13 +40,10 @@ public class User {
 	@Column(name = "password")
 	private String password;
 
-	@Column(name = "shippingArea")
-	private String shippingArea;
-
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", userName=" + userName + ", email=" + email + ", tel=" + tel + ", zipcode="
-				+ zipcode + ", address=" + address + ", password=" + password + ", shippingArea=" + shippingArea + "]";
+				+ zipcode + ", address=" + address + ", password=" + password + "]";
 	}
 
 	public Integer getId() {
@@ -102,14 +100,6 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getShippingArea() {
-		return shippingArea;
-	}
-
-	public void setShippingArea(String shippingArea) {
-		this.shippingArea = shippingArea;
 	}
 
 }
