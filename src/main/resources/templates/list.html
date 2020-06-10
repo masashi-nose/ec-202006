@@ -45,11 +45,12 @@
 
 	<br>
 	<div class="main wrapper">
-		<h1>商品一覧</h1><br>
+		<h1>商品一覧</h1>
+		<br>
 		<div class="item-container">
 			<div th:each="item:${itemList}" class="item">
 				<img alt="" th:src="@{'/arts/'+${item.imagePath}}" class="rounded"
-					width="200" height="168"> <img alt=""
+					width="200" height="168" > <img alt=""
 					th:src="@{'/book/'+${item.imagePath}}" class="rounded " width="200"
 					height="168"> <img alt=""
 					th:src="@{'/clothing/'+${item.imagePath}}" class="rounded "

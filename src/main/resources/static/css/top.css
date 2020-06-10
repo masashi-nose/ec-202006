@@ -1,7 +1,5 @@
 @charset "UTF-8";
 
-
-
 a {
 	text-decoration: none;
 }
@@ -62,6 +60,36 @@ main-nav a {
 	gap: 40px;
 }
 
-item {
+.item {
 	left: 500px;
+}
+
+.detail-container {
+	display: flex;
+}
+
+.item-detail {
+	margin-left: 25px;
+	margin-top: 30px;
+	padding: 30px;
+}
+
+.btn-text {
+	font-size: 15px;
+	padding-left: 50px;
+	padding-right: 50px;
+	color: white;
+}
+
+.cart-btn {
+	border: none; /* 枠線を消す */
+	outline: none; /* クリックしたときに表示される枠線を消す */
+	border-radius: 50px;
+	background-color: #993333;
+}
+
+.cart-icon{
+	width: 15px;
+	height: 15px;
+	margin-bottom: 5px;
 }
