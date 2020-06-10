@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+.main-nav {
+	display: flex;
+	margin-top: 30px;
+}
+
+.main-nav li {
+	margin-left: 36px;
+}
+
+main-nav a {
+	color: #808080;
+}
+
+.page-header {
+	background-color: rgb(255, 255, 255);
+	display: flex;
+	justify-content: space-between;
+	display: flex;
+}
+
+.wrapper {
+	max-width: 1100px; /*横幅最大*/
+	margin: 0 auto; /*中央に配置*/
+	padding: 0 4%; /*スマートフォン向け余白*/
+}
+
+/*スライドショー*/
+.slideshow {
+	overflow: hidden;
+	position: absolute;
+	top: 90px;
+	height: 500px;
+}
+
+/*スティッキースタイル*/
+.page-header.sticky {
+	postion: fixed;
+	top: 0;
+}
+
+.main {
+	position: relative;
+	top: 550px;
+	text-align: center;
+}

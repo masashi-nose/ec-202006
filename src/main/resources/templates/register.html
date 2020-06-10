@@ -13,9 +13,7 @@
 </head>
 <body>
 	<div class="container">
-		<header class="page-header">
-			登録画面
-		</header>
+		<header class="page-header"> 登録画面 </header>
 		<br> <br>
 
 		<!-- 以下main要素 -->
@@ -50,8 +48,8 @@
 								class="form-control" th:field="*{zipcode}" /> &nbsp;
 							<button type="button"
 								class="btn page-link text-dark d-inline-block"
-								id="get_address_btn">住所検索</button>&nbsp;
-							<small class="control-label" th:errors="*{zipcode}"
+								id="get_address_btn">住所検索</button>
+							&nbsp; <small class="control-label" th:errors="*{zipcode}"
 								style="color: red;"></small>
 						</div>
 					</div>
@@ -152,11 +150,9 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
-</body>
-</html>
 
-<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
-<script th:src="@{/js/get_address.js}"></script>
+	<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+	<script th:src="@{/js/get_address.js}"></script>
 </body>
 
 </html>
