@@ -8,7 +8,8 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 
-<link rel="stylesheet" href="../static/css/top.css">
+<link rel="stylesheet" href="../static/css/top.css"
+	th:href="@{/css/top.css}">
 <title>Insert title here</title>
 </head>
 <body>
@@ -30,24 +31,49 @@
 
 
 		<header class="slideshow wrapper">
-			<img alt="" src="../static/arts/art01.jpg"> <img alt=""
-				src="../static/arts/art02.jpg"> <img alt=""
-				src="../static/arts/art03.jpg"> <img alt=""
-				src="../static/arts/art04.jpg">
+			<img alt="" src="../static/arts/art01.jpg"
+				th:src="@{/arts/art01.jpg}"> <img alt=""
+				src="../static/arts/art02.jpg" th:src="@{/arts/art02.jpg}"> <img
+				alt="" src="../static/arts/art03.jpg" th:src="@{/arts/art03.jpg}">
+			<img alt="" src="../static/arts/art04.jpg"
+				th:src="@{/arts/art04.jpg}">
 
 		</header>
 	</div>
 
-	<div class="main wrapper">
 
-		<h1>商品</h1>
-		<div class="items arts">
-			<h5>作家作品</h5>
+
+	<br>
+	<div class="main wrapper">
+		<h1>商品一覧</h1><br>
+		<div class="item-container">
+			<div th:each="item:${itemList}" class="item">
+				<img alt="" th:src="@{'/arts/'+${item.imagePath}}" class="rounded"
+					width="200" height="168"> <img alt=""
+					th:src="@{'/book/'+${item.imagePath}}" class="rounded " width="200"
+					height="168"> <img alt=""
+					th:src="@{'/clothing/'+${item.imagePath}}" class="rounded "
+					width="200" height="168"> <img alt=""
+					th:src="@{'/daily/'+${item.imagePath}}" class="rounded" width="200"
+					height="168"> <img alt=""
+					th:src="@{'/electronics/'+${item.imagePath}}" class="rounded "
+					width="200" height="168"> <img alt=""
+					th:src="@{'/food/'+${item.imagePath}}" class="rounded " width="200"
+					height="168"> <img alt=""
+					th:src="@{'/furniture/'+${item.imagePath}}" class="rounded "
+					width="200" height="168"> <img alt=""
+					th:src="@{'/office/'+${item.imagePath}}" class="rounded "
+					width="200" height="168"> <img alt=""
+					th:src="@{'/toy/'+${item.imagePath}}" class="rounded " width="200"
+					height="168">
+				<div th:text="${item.itemName}"></div>
+			</div>
+
 
 		</div>
 
-
 	</div>
+
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script
@@ -58,7 +84,8 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
-	<script type="text/javascript" src="../static/js/slideshow.js"></script>
+	<script type="text/javascript" src="../static/js/slideshow.js"
+		th:src="@{/js/slideshow.js}"></script>
 	<script type="text/javascript" src="../static/js/sticky-header.js"></script>
 
 </body>

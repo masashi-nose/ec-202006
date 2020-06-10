@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+
+
 a {
 	text-decoration: none;
 }
@@ -52,4 +54,14 @@ main-nav a {
 	position: relative;
 	top: 550px;
 	text-align: center;
+}
+
+.item-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 40px;
+}
+
+item {
+	left: 500px;
 }
