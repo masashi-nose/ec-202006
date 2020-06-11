@@ -14,7 +14,9 @@
 
 	<div class="container">
 		<header class="page-header wrapper">
-			<h1>WEB SHOP</h1>
+			<a th:href="@{/}">
+				<h1>WEB SHOP</h1>
+			</a>
 			<nav class="primary-nav" role="navigation">
 				<ul class="main-nav">
 					<li><a href="#">LOGIN/REGISTER</a></li>
@@ -28,30 +30,53 @@
 
 		<div class="detail-container wrapper">
 			<div class="item-detail">
-				<img alt="" src="../static/arts/art01.jpg" width="500px;" height="400px;">
+				<img alt="" src="../static/arts/art01.jpg"> <img alt=""
+					th:src="@{'/arts/'+${item.imagePath}}" class="rounded detail-img">
+				<img alt="" th:src="@{'/book/'+${item.imagePath}}"
+					class="rounded detail-img"> <img alt=""
+					th:src="@{'/clothing/'+${item.imagePath}}"
+					class="rounded detail-img"> <img alt=""
+					th:src="@{'/daily/'+${item.imagePath}}" class="rounded detail-img">
+				<img alt="" th:src="@{'/electronics/'+${item.imagePath}}"
+					class="rounded detail-img"> <img alt=""
+					th:src="@{'/food/'+${item.imagePath}}" class="rounded detail-img">
+				<img alt="" th:src="@{'/furniture/'+${item.imagePath}}"
+					class="rounded detail-img"> <img alt=""
+					th:src="@{'/office/'+${item.imagePath}}" class="rounded detail-img">
+				<img alt="" th:src="@{'/toy/'+${item.imagePath}}"
+					class="rounded detail-img">
 			</div>
 			<div class="item-detail">
-				<h3 class="item-name">器</h3><br>
-				<div class="item-description">陶器の器です。丹精込めて作りました。</div><br>	
-				<div class="item-price"><small>消費税込</small>　3000円</div><br>
-				<div class="item-quantity"><small>数量</small>&nbsp;&nbsp;
-					<select>
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-						<option>6</option>
-						<option>7</option>
-						<option>8</option>
-						<option>9</option>
-						<option>10</option>
+				<h3 class="item-name" th:text="${item.itemName}">器</h3>
+				<br>
+				<div class="item-description" th:text="${item.description}">陶器の器です。丹精込めて作りました。</div>
+				<br>
+				<div class="item-price">
+					<small>消費税込</small>&nbsp;&nbsp;<span
+						th:text="${#numbers.formatInteger(item.price, 1, 'COMMA') + '円'}"></span>
+				</div>
+				<br>
+				<div class="item-quantity">
+					<small>数量</small>&nbsp;&nbsp; <select>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
 					</select>
 				</div>
 				<br>
-				<button type="submit" class="cart-btn"><span class="btn-text"><img alt="" src="../static/cart-white.png" class="cart-icon">&nbsp;&nbsp;カートに入れる</span></button>
+				<button type="submit" class="cart-btn">
+					<span class="btn-text"><img alt=""
+						src="../static/cart-white.png" class="cart-icon">&nbsp;&nbsp;カートに入れる</span>
+				</button>
 			</div>
-			
+
 		</div>
 
 

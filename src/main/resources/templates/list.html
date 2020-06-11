@@ -15,7 +15,9 @@
 <body>
 	<div class="container">
 		<header class="page-header wrapper">
-			<h1>WEB SHOP</h1>
+			<a th:href="@{/}">
+				<h1>WEB SHOP</h1>
+			</a>
 			<nav class="primary-nav" role="navigation">
 				<ul class="main-nav">
 					<li><a href="#">LOGIN/REGISTER</a></li>
@@ -49,25 +51,41 @@
 		<br>
 		<div class="item-container">
 			<div th:each="item:${itemList}" class="item">
-				<img alt="" th:src="@{'/arts/'+${item.imagePath}}" class="rounded"
-					width="200" height="168" > <img alt=""
+				<a th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
+					th:src="@{'/arts/'+${item.imagePath}}" class="rounded" width="200"
+					height="168">
+				</a> <a th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
 					th:src="@{'/book/'+${item.imagePath}}" class="rounded " width="200"
-					height="168"> <img alt=""
+					height="168">
+				</a> <a th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
 					th:src="@{'/clothing/'+${item.imagePath}}" class="rounded "
-					width="200" height="168"> <img alt=""
+					width="200" height="168" th:href="@{'/detail' + ${item.id}}"></a>
+
+
+				<a th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
 					th:src="@{'/daily/'+${item.imagePath}}" class="rounded" width="200"
-					height="168"> <img alt=""
+					height="168">
+				</a> <a th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
 					th:src="@{'/electronics/'+${item.imagePath}}" class="rounded "
-					width="200" height="168"> <img alt=""
+					width="200" height="168"></a> <a
+					th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
 					th:src="@{'/food/'+${item.imagePath}}" class="rounded " width="200"
-					height="168"> <img alt=""
-					th:src="@{'/furniture/'+${item.imagePath}}" class="rounded "
-					width="200" height="168"> <img alt=""
+					height="168"></a> <a th:href="@{'/detail?id='+ ${item.id}}">
+					<img alt="" th:src="@{'/furniture/'+${item.imagePath}}"
+					class="rounded " width="200" height="168">
+				</a> <a th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
 					th:src="@{'/office/'+${item.imagePath}}" class="rounded "
-					width="200" height="168"> <img alt=""
+					width="200" height="168"></a> <a
+					th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
 					th:src="@{'/toy/'+${item.imagePath}}" class="rounded " width="200"
 					height="168">
-				<div th:text="${item.itemName}"></div>
+				</a> 
+				<a th:href="@{'/detail?id='+ ${item.id}}">
+				 <div
+					th:text="${item.itemName}" class="itemlist-name"></div>
+				</a>
+
+
 			</div>
 
 

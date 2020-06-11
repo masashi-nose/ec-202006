@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -31,6 +32,16 @@ public class ShowItemDetailService {
 	 */
 	public Optional<Item> showDetail(Integer id) {
 		return itemRepository.findById(id);
+	}
+
+	/**
+	 * カテゴリーIDで商品を検索します.
+	 * 
+	 * @param categoryId カテゴリーID
+	 * @return　商品リスト
+	 */
+	public List<Item> findByCategoryId(Integer categoryId) {
+		return itemRepository.findByCategoryId(categoryId);
 	}
 
 }

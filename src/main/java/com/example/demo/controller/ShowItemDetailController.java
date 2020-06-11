@@ -26,20 +26,20 @@ public class ShowItemDetailController {
 	/**
 	 * 商品詳細画面へ遷移します.
 	 * 
-	 * @param id
+	 * @param id    ID
 	 * @param model
-	 * @return
+	 * @return 商品詳細画面
 	 */
+	@RequestMapping("/detail")
 	public String showDetail(Integer id, Model model) {
-		Optional<Item> item = showItemDetailService.showDetail(id);
+		Optional<Item> itemOpt = showItemDetailService.showDetail(id);
 
-		if (item.isPresent()) {
-			model.addAttribute("item", item);
-			return "detail";
+		Item item = itemOpt.get();
+		System.out.println(item.getItemName());
 
-		} else
-			return null;
+		model.addAttribute("item", item);
 
+		return "detail";
 	}
 
 }
