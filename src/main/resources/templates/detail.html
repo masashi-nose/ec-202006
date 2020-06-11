@@ -78,7 +78,53 @@
 			</div>
 
 		</div>
+		<br>
+		<h2>関連商品</h2>
+		<br>
+		<div class="category-list">
+			<div class="category-container">
+				<div class="category-item"
+					th:each="categoryItem:${categoryItemList}">
 
+					<a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+						th:src="@{'/arts/'+${categoryItem.imagePath}}" class="rounded"
+						width="200" height="168">
+					</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+						th:src="@{'/book/'+${categoryItem.imagePath}}" class="rounded "
+						width="200" height="168">
+					</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+						th:src="@{'/clothing/'+${categoryItem.imagePath}}"
+						class="rounded " width="200" height="168"
+						th:href="@{'/detail' + ${item.id}}"></a> <a
+						th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+						th:src="@{'/daily/'+${categoryItem.imagePath}}" class="rounded"
+						width="200" height="168">
+					</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+						th:src="@{'/electronics/'+${categoryItem.imagePath}}"
+						class="rounded " width="200" height="168"></a> <a
+						th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+						th:src="@{'/food/'+${categoryItem.imagePath}}" class="rounded "
+						width="200" height="168"></a> <a
+						th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+						th:src="@{'/furniture/'+${categoryItem.imagePath}}"
+						class="rounded " width="200" height="168">
+					</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+						th:src="@{'/office/'+${categoryItem.imagePath}}" class="rounded "
+						width="200" height="168"></a> <a
+						th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+						th:src="@{'/toy/'+${categoryItem.imagePath}}" class="rounded "
+						width="200" height="168">
+					</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}">
+						<div th:text="${categoryItem.itemName}" class="itemlist-name"></div>
+					</a>
+
+
+				</div>
+
+
+			</div>
+
+		</div>
 
 
 

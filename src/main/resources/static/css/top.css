@@ -70,6 +70,10 @@ main-nav a {
 	left: 500px;
 }
 
+.category-list {
+	margin-top: 30px;
+}
+
 .detail-container {
 	display: flex;
 }
@@ -109,4 +113,19 @@ main-nav a {
 .itemlist-name {
 	padding-top: 8px;
 	text-align: center;
+}
+
+.category-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 40px;
+}
+
+.category-item {
+	
+}
+
+h2 {
+	text-align: center;
+	margin-top: 100px;
 }

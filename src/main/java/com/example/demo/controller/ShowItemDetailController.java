@@ -36,10 +36,10 @@ public class ShowItemDetailController {
 		Optional<Item> itemOpt = showItemDetailService.showDetail(id);
 		Item item = itemOpt.get();
 
-		List<Item> itemList = showItemDetailService.findByCategoryId(item.getCategoryId());
+		List<Item> categoryItemList = showItemDetailService.findByCategoryId(item.getCategoryId());
 
 		model.addAttribute("item", item);
-		model.addAttribute("itemList", itemList);
+		model.addAttribute("categoryItemList", categoryItemList);
 
 		return "detail";
 	}
