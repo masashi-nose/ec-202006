@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,11 +34,12 @@ public class ShowItemDetailController {
 	@RequestMapping("/detail")
 	public String showDetail(Integer id, Model model) {
 		Optional<Item> itemOpt = showItemDetailService.showDetail(id);
-
 		Item item = itemOpt.get();
-		System.out.println(item.getItemName());
+
+		List<Item> itemList = showItemDetailService.findByCategoryId(item.getCategoryId());
 
 		model.addAttribute("item", item);
+		model.addAttribute("itemList", itemList);
 
 		return "detail";
 	}
