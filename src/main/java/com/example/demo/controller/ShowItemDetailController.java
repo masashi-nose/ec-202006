@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.domain.Item;
 import com.example.demo.service.ShowItemDetailService;
@@ -32,7 +33,7 @@ public class ShowItemDetailController {
 	 * @return 商品詳細画面
 	 */
 	@RequestMapping("/detail")
-	public String showDetail(Integer id, Model model) {
+	public String showDetail(@RequestParam("id") Integer id, Model model) {
 		Optional<Item> itemOpt = showItemDetailService.showDetail(id);
 		Item item = itemOpt.get();
 
