@@ -35,7 +35,7 @@ public class ShowItemListController {
 
 		model.addAttribute("itemList", itemList);
 
-		return "list";
+		return "top";
 	}
 
 }

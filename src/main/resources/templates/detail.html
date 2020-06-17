@@ -7,29 +7,43 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="../static/css/top.css"
-	th:href="@{/css/top.css}">
+	th:href="@{/css/main.css}">
 <title>Insert title here</title>
 </head>
 <body>
 
-	<div class="container">
-		<header class="page-header wrapper">
-			<a th:href="@{/}">
-				<h1>WEB SHOP</h1>
-			</a>
-			<nav class="primary-nav" role="navigation">
-				<ul class="main-nav">
-					<li><a href="#">LOGIN/REGISTER</a></li>
-					<li><a href="#">CART</a></li>
-					<li><a href="#">HELP</a></li>
-					<li><a href="#">CONTACT</a></li>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top">
+		<div class="container">
+			<a class="navbar-brand" th:href="@{/}"><span class="text-dark">WEB
+					SHOP</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a class="nav-link"
+						href="login-register.html" th:href="@{/toLogin}"><span
+							class="text-dark">LOGIN/REGISTER</span> <span class="sr-only">(current)</span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link" href="#"><span
+							class="text-dark">CART</span></a></li>
+					<li class="nav-item"><a class="nav-link" href="#"><span
+							class="text-dark">HELP</span></a></li>
+					<li class="nav-item"><a class="nav-link" href="#"><span
+							class="text-dark">CONTACT</span></a></li>
 				</ul>
-			</nav>
-		</header>
+			</div>
+		</div>
+	</nav>
 
 
-		<div class="detail-container wrapper">
-			<div class="item-detail">
+
+	<div class="container detail-container">
+		<div class="row">
+			<div class="item-detail col-lg-8 col-xs-12">
 				<img alt="" src="../static/arts/art01.jpg"> <img alt=""
 					th:src="@{'/arts/'+${item.imagePath}}" class="rounded detail-img">
 				<img alt="" th:src="@{'/book/'+${item.imagePath}}"
@@ -46,7 +60,7 @@
 				<img alt="" th:src="@{'/toy/'+${item.imagePath}}"
 					class="rounded detail-img">
 			</div>
-			<div class="item-detail">
+			<div class="item-detail col-lg-4 col-xs-12">
 				<h3 class="item-name" th:text="${item.itemName}">器</h3>
 				<br>
 				<div class="item-description" th:text="${item.description}">陶器の器です。丹精込めて作りました。</div>
@@ -71,64 +85,101 @@
 					</select>
 				</div>
 				<br>
+
+				<button type="button" class="btn btn-primary" data-toggle="modal"
+					data-target="#exampleModal">送料を確認する</button>
+
+				<!-- モーダルの設定 -->
+				<div class="modal fade" id="exampleModal" tabindex="-1"
+					role="dialog" aria-labelledby="exampleModalLabel">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">配送料（ヤマト運輸）</h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="閉じる">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>
+									<img alt="" src="../static/yamato.png" th:src="@{/yamato.png}"
+										width="470pxpx;" height="380px;">
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">閉じる</button>
+
+							</div>
+							<!-- /.modal-footer -->
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<!-- /.modal -->
+
+
 				<button type="submit" class="cart-btn">
 					<span class="btn-text"><img alt=""
-						src="../static/cart-white.png" class="cart-icon">&nbsp;&nbsp;カートに入れる</span>
+						src="../static/cart-white.png" th:src="@{/cart-white.png}"
+						class="cart-icon">&nbsp;&nbsp;カートに入れる</span>
 				</button>
 			</div>
+		</div>
+	</div>
+
+
+
+
+	<br>
+	<h2 class="container">関連商品</h2>
+	<br>
+	<div class="container category-container wrapper">
+		<div class="category-item" th:each="categoryItem:${categoryItemList}">
+
+			<a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+				th:src="@{'/arts/'+${categoryItem.imagePath}}" class="rounded"
+				width="200" height="168">
+			</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+				th:src="@{'/book/'+${categoryItem.imagePath}}" class="rounded "
+				width="200" height="168">
+			</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+				th:src="@{'/clothing/'+${categoryItem.imagePath}}" class="rounded "
+				width="200" height="168" th:href="@{'/detail' + ${item.id}}"></a>
+			<a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+				th:src="@{'/daily/'+${categoryItem.imagePath}}" class="rounded"
+				width="200" height="168">
+			</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+				th:src="@{'/electronics/'+${categoryItem.imagePath}}"
+				class="rounded " width="200" height="168"></a> <a
+				th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+				th:src="@{'/food/'+${categoryItem.imagePath}}" class="rounded "
+				width="200" height="168"></a> <a
+				th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+				th:src="@{'/furniture/'+${categoryItem.imagePath}}" class="rounded "
+				width="200" height="168">
+			</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+				th:src="@{'/office/'+${categoryItem.imagePath}}" class="rounded "
+				width="200" height="168"></a> <a
+				th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+				th:src="@{'/toy/'+${categoryItem.imagePath}}" class="rounded "
+				width="200" height="168">
+			</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}">
+				<div th:text="${categoryItem.itemName}" class="itemlist-name"></div>
+			</a>
+
 
 		</div>
-		<br>
-		<h2>関連商品</h2>
-		<br>
-		<div class="category-list">
-			<div class="category-container">
-				<div class="category-item"
-					th:each="categoryItem:${categoryItemList}">
-
-					<a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-						th:src="@{'/arts/'+${categoryItem.imagePath}}" class="rounded"
-						width="200" height="168">
-					</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-						th:src="@{'/book/'+${categoryItem.imagePath}}" class="rounded "
-						width="200" height="168">
-					</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-						th:src="@{'/clothing/'+${categoryItem.imagePath}}"
-						class="rounded " width="200" height="168"
-						th:href="@{'/detail' + ${item.id}}"></a> <a
-						th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-						th:src="@{'/daily/'+${categoryItem.imagePath}}" class="rounded"
-						width="200" height="168">
-					</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-						th:src="@{'/electronics/'+${categoryItem.imagePath}}"
-						class="rounded " width="200" height="168"></a> <a
-						th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-						th:src="@{'/food/'+${categoryItem.imagePath}}" class="rounded "
-						width="200" height="168"></a> <a
-						th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-						th:src="@{'/furniture/'+${categoryItem.imagePath}}"
-						class="rounded " width="200" height="168">
-					</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-						th:src="@{'/office/'+${categoryItem.imagePath}}" class="rounded "
-						width="200" height="168"></a> <a
-						th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-						th:src="@{'/toy/'+${categoryItem.imagePath}}" class="rounded "
-						width="200" height="168">
-					</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}">
-						<div th:text="${categoryItem.itemName}" class="itemlist-name"></div>
-					</a>
-
-
-				</div>
-
-
-			</div>
-
-		</div>
-
 
 
 	</div>
+
+	</div>
+
+
+
 
 
 

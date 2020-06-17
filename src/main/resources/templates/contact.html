@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="../static/css/top.css"
+	th:href="@{/css/top.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+		<header class="page-header wrapper">
+			<a th:href="@{/}">
+				<h1>WEB SHOP</h1>
+			</a>
+			<nav class="primary-nav" role="navigation">
+				<ul class="main-nav">
+					<li><a href="#" th:href="@{/toLogin}">LOGIN/REGISTER</a></li>
+					<li><a href="#">CART</a></li>
+					<li><a href="#">HELP</a></li>
+					<li><a href="#">CONTACT</a></li>
+				</ul>
+			</nav>
+		</header>
+	</div>
+
+	<div class="contact-container wrapper">
+		<div class="contact-item">
+			<h2>CONTACT</h2>
+
+			<br>
+			<div class="wrapper">
+				<form method="post" class="form-horizontal">
+					<div class="form-group">
+						<label class=" col-md-3 col-form-label" for="email"> <span>名前</span>
+						</label>
+						<div class=" form-group col-md-6">
+							<small class="  control-label" style="color: red;"> </small> <input
+								type="text" name="name" class="form-control" id="name" />
+						</div>
+					</div>
+
+					<!-- メールアドレス -->
+					<div class="form-group">
+						<label class=" col-md-3 col-form-label" for="password"> <span>メールアドレス</span>
+						</label>
+						<div class="form-group col-md-6">
+
+							<small class="control-label " style="color: red;"> </small><input
+								type="text" id="email" name="email" class="form-control " />
+						</div>
+					</div>
+
+					<div class="form-group ">
+						<label class=" col-md-3 col-form-label" for="password"> <span>お問い合わせ内容</span>
+						</label>
+						<div class="form-group col-md-6">
+
+							<small class="control-label" style="color: red;"> </small>
+							<textarea rows="20" cols="40" id="content" name="content"
+								class="form-control"></textarea>
+
+
+						</div>
+					</div>
+
+
+
+					<div class="login-btn" style="text-align: center;">
+						<button type="submit" class="btn" id="send" style="color: white;">
+							<span>送信</span>
+						</button>
+					</div>
+					<br> <br>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+</html>

@@ -18,17 +18,18 @@
 			<a th:href="@{/}">
 				<h1>WEB SHOP</h1>
 			</a>
+
 			<nav class="primary-nav" role="navigation">
 				<ul class="main-nav">
-					<li><a href="#">LOGIN/REGISTER</a></li>
-					<li><a href="#">CART</a></li>
-					<li><a href="#">HELP</a></li>
-					<li><a href="#">CONTACT</a></li>
+					<li><a href="login-register.html" th:href="@{/toLogin}">LOGIN/REGISTER</a></li>
+					<li><a href="#"><img alt="" src="../static/cart.png"
+							th:src="@{/cart.png}" class="cart-icon"></a></li>
+					<li><a href="#">help</a></li>
+					<li><a href="contact.html" th:href="@{/contact}">CONTACT</a></li>
 				</ul>
 
 			</nav>
 		</header>
-
 
 
 
@@ -47,7 +48,7 @@
 
 	<br>
 	<div class="main wrapper">
-		<h1>商品一覧</h1>
+		<h1>商品</h1>
 		<br>
 		<div class="item-container">
 			<div th:each="item:${itemList}" class="item">
@@ -79,10 +80,8 @@
 					th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
 					th:src="@{'/toy/'+${item.imagePath}}" class="rounded " width="200"
 					height="168">
-				</a> 
-				<a th:href="@{'/detail?id='+ ${item.id}}">
-				 <div
-					th:text="${item.itemName}" class="itemlist-name"></div>
+				</a> <a th:href="@{'/detail?id='+ ${item.id}}">
+					<div th:text="${item.itemName}" class="itemlist-name"></div>
 				</a>
 
 

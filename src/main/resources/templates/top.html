@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="../static/css/main.css"
+	th:href="@{/css/main.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top">
+		<div class="container">
+			<a class="navbar-brand" th:href="@{/}"><span class="text-dark">WEB
+					SHOP</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a class="nav-link"
+						href="login-register.html" th:href="@{/toLogin}"><span
+							class="text-dark">ログイン/会員登録</span> <span class="sr-only">(current)</span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link" href="#"><img
+							alt="" src="../static/cart.png" th:src="@{/cart.png}" class="cart-png-top"></a></li>
+					<li class="nav-item"><a class="nav-link" href="#"><span
+							class="text-dark">ヘルプ</span></a></li>
+					<li class="nav-item"><a class="nav-link" href="#"><span
+							class="text-dark">お問い合わせ</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<header>
+		<div id="carouselExampleIndicators" class="carousel slide"
+			data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselExampleIndicators" data-slide-to="0"
+					class="active"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<!-- Slide One - Set the background image for this slide in the line below -->
+				<div class="carousel-item active"
+					style="background-image: url('../static/arts/art01.jpg');"
+					th:style="'background-image: url(' + @{/arts/art01.jpg} + ');'">
+					<div class="carousel-caption d-none d-md-block"></div>
+				</div>
+
+				<!-- Slide Two - Set the background image for this slide in the line below -->
+				<div class="carousel-item"
+					style="background-image: url('../static/arts/art02.jpg')"
+					th:style="'background-image: url(' + @{/clothing/clothing02.jpg} + ');'">
+					<div class="carousel-caption d-none d-md-block"></div>
+				</div>
+				<!-- Slide Three - Set the background image for this slide in the line below -->
+				<div class="carousel-item"
+					style="background-image: url('../static/arts/art03.jpg')"
+					th:style="'background-image: url(' + @{/arts/art07.jpg} + ');'">
+					<div class="carousel-caption d-none d-md-block"></div>
+				</div>
+				<!-- Slide Four - Set the background image for this slide in the line below -->
+				<div class="carousel-item"
+					style="background-image: url('../static/arts/art03.jpg')"
+					th:style="'background-image: url(' + @{/arts/art09.jpg} + ');'">
+					<div class="carousel-caption d-none d-md-block"></div>
+				</div>
+				<!-- Slide Five - Set the background image for this slide in the line below -->
+				<div class="carousel-item"
+					style="background-image: url('../static/arts/art03.jpg')"
+					th:style="'background-image: url(' + @{/clothing/clothing05.jpg} + ');'">
+					<div class="carousel-caption d-none d-md-block"></div>
+				</div>
+				<!-- Slide Six - Set the background image for this slide in the line below -->
+				<div class="carousel-item"
+					style="background-image: url('../static/arts/art03.jpg')"
+					th:style="'background-image: url(' + @{/food/food06.jpg} + ');'">
+					<div class="carousel-caption d-none d-md-block"></div>
+				</div>
+
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleIndicators"
+				role="button" data-slide="prev"> <span
+				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
+				role="button" data-slide="next"> <span
+				class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="sr-only">Next</span>
+			</a>
+		</div>
+	</header>
+
+	<!-- Page Content -->
+	<section class="py-5">
+		<h2 style="text-align: center;">Recommended Items</h2>
+		<br>
+		<div class="container item-container">
+			<div class="row">
+				<div th:each="item:${itemList}">
+					<div class="item col-xs-5 col-lg-6">
+						<a th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
+							th:src="@{'/arts/'+${item.imagePath}}" class="rounded">
+						</a> <a th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
+							th:src="@{'/book/'+${item.imagePath}}" class="rounded ">
+						</a> <a th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
+							th:src="@{'/clothing/'+${item.imagePath}}" class="rounded"
+							th:href="@{'/detail' + ${item.id}}"></a> <a
+							th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
+							th:src="@{'/daily/'+${item.imagePath}}" class="rounded">
+						</a> <a th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
+							th:src="@{'/electronics/'+${item.imagePath}}" class="rounded"></a>
+						<a th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
+							th:src="@{'/food/'+${item.imagePath}}" class="rounded "></a> <a
+							th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
+							th:src="@{'/furniture/'+${item.imagePath}}" class="rounded">
+						</a> <a th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
+							th:src="@{'/office/'+${item.imagePath}}" class="rounded"></a> <a
+							th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
+							th:src="@{'/toy/'+${item.imagePath}}" class="rounded">
+						</a> <a th:href="@{'/detail?id='+ ${item.id}}"><br> <span
+							th:text="${item.itemName}" class="itemlist-name"
+							style="color: black;"></span> </a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- メインコンテンツ -->
+	<section></section>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+</body>
+</html>

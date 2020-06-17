@@ -33,4 +33,6 @@ public interface ItemRepository extends JpaRepository<Item, Integer> {
 	@Override
 	Optional<Item> findById(Integer id);
 
+	
+	
 }

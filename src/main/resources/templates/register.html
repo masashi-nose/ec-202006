@@ -2,143 +2,138 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-<link rel="stylesheet" th:href="@{/css/ec202006.css}">
-<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/main.css}"
+	href="../static/css/main.css">
 
+<meta name=”viewport” content=”width=device-width, initial-scale=1”>
+<title>Insert title here</title>
 </head>
 <body>
-	<div class="container">
-		<header class="page-header"> 登録画面 </header>
-		<br> <br>
+<body>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top">
+		<div class="container">
+			<a class="navbar-brand" th:href="@{/}"><span class="text-dark">WEB
+					SHOP</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
 
-		<!-- 以下main要素 -->
-		<div id="register-form">
-			<h2 class="page-heading">
-				<span>新規会員登録</span>
-			</h2>
-			<br>
-			<form method="post" th:action="@{/register}" class="form-horizontal"
-				th:object="${registerForm}">
+					<li class="nav-item"><a class="nav-link" href="#"><img
+							alt="" src="../static/cart.png" th:src="@{/cart.png}"
+							class="cart-icon"></a></li>
+					<li class="nav-item"><a class="nav-link" href="#"><span
+							class="text-dark">HELP</span></a></li>
+					<li class="nav-item"><a class="nav-link" href="#"><span
+							class="text-dark">CONTACT</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<br>
+	<br>
 
-				<!-- 名前 -->
-				<div class="form-group row">
-					<label class="col-md-3 col-form-label" for="userName"> <span
-						class="required">必須</span> <span>お名前</span>
-					</label>
-					<div class="form-group col-md-7">
-						<small class="control-label" th:errors="*{userName}"
-							style="color: red;"> </small> <input type="text" id="userName"
-							name="userName" class="form-control" th:field="*{userName}" />
-					</div>
-				</div>
+	<div class="container-fluid register-container">
+		<div class="row no-gutter">
 
-				<!-- 郵便番号 -->
-				<div class="form-group row">
-					<label class="col-md-3 col-form-label" for="zipcode"> <span
-						class="required">必須</span> <span>郵便番号</span>
-					</label>
-					<div class="form-group col-md-9">
-						<div class="form-group form-inline input_zip">
-							<input type="text" id="zipcode" name="zipcode"
-								class="form-control" th:field="*{zipcode}" /> &nbsp;
-							<button type="button"
-								class="btn page-link text-dark d-inline-block"
-								id="get_address_btn">住所検索</button>
-							&nbsp; <small class="control-label" th:errors="*{zipcode}"
-								style="color: red;"></small>
+			<div class="col-md-8 col-lg-6">
+				<div class="login d-flex align-items-center py-5">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-9 col-lg-8 mx-auto">
+								<h3 class="login-heading mb-4">新規会員登録</h3>
+								<br>
+								<form method="post" th:action="@{/register}"
+									class="form-horizontal" th:object="${registerForm}">
+
+									<!-- 名前 -->
+									<div class="form-label-group">
+										<label for="inputName">名前</label> <input type="text"
+											id="inputName" name="userName" class="form-control"
+											th:field="*{userName}" placeholder="名前" autofocus> <small
+											th:errors="*{userName}" style="color: red;"></small>
+									</div>
+
+									<!-- 郵便番号 -->
+
+									<div class="form-label-group">
+										<label for="inputZipcode">郵便番号</label>
+										<button type="button" class="btn-link" id="get_address_btn"
+											style="background-color: transparent; border: none;">
+											<small>郵便番号から住所を検索する</small>
+										</button>
+										<input type="text" id="inputZipcode" name="zipcode"
+											class="form-control" th:field="*{zipcode}" placeholder="郵便番号"
+											autofocus> <small th:errors="*{zipcode}"
+											style="color: red;"></small>
+									</div>
+
+									<!-- 住所 -->
+									<div class="form-label-group">
+										<label for="inputAddress">住所</label> <input type="text"
+											id="inputAddress" class="form-control" th:field="*{address}"
+											placeholder="住所" autofocus><small
+											th:errors="*{address}" style="color: red;"></small>
+									</div>
+
+									<!-- 電話番号 -->
+									<div class="form-label-group">
+										<label for="inputTel">電話番号</label> <input type="text"
+											id="inputTel" class="form-control" placeholder=""
+											th:field="*{tel}" autofocus><small th:errors="*{tel}"
+											style="color: red;"></small>
+									</div>
+
+									<!-- メールアドレス -->
+									<div class="form-label-group">
+										<label for="inputEmail">メールアドレス</label> <input type="text"
+											id="inputEmail" class="form-control" th:field="*{email}"
+											placeholder="" autofocus><small th:errors="*{email}"
+											style="color: red;"></small>
+									</div>
+
+									<!-- パスワード -->
+									<div class="form-label-group">
+										<label for="inputPassword">パスワード</label> <input
+											type="password" id="inputPassword" class="form-control"
+											th:field="*{password}" placeholder="" autofocus> <small
+											th:errors="*{password}" style="color: red;"></small>
+									</div>
+
+									<!-- 確認用パスワード -->
+									<div class="form-label-group">
+										<label for="inputConfirmPassword">確認用パスワード</label> <input
+											type="password" id="inputConfirmPassword"
+											class="form-control" th:field="*{confirmPassword}"
+											placeholder="" autofocus> <small
+											th:errors="*{confirmPassword}" style="color: red;"></small>
+									</div>
+
+									<hr>
+
+
+									<button
+										class="btn btn-secondary btn-block btn-login  mb-2 register-btn"
+										type="submit">
+										<span>会員登録</span>
+									</button>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
-
-				<!-- 住所 -->
-				<div class="form-group row">
-					<label class="col-md-3 col-form-label" for="addr"> <span
-						class="required">必須</span> <span id="addr">住所</span>
-					</label>
-
-					<div class="form-group col-md-7">
-
-						<small class="control-label" th:errors="*{address}"
-							style="color: red;"> </small> <input type="text" name="address"
-							class="form-control" size="60" th:field="*{address}" /> <br>
-					</div>
-				</div>
-
-				<!-- 電話番号 -->
-				<div class="form-group row">
-					<label class="col-md-3 col-form-label" for="zipcode"> <span
-						class="required">必須</span> <span>電話番号</span>
-					</label>
-					<div class="form-group col-md-7">
-
-						<small class="control-label" th:errors="*{tel}"
-							style="color: red;"> </small> <input type="tel" id="tel"
-							name="tel" style="ime-mode: disabled;" class="form-control"
-							size="60" th:field="*{tel}" />
-					</div>
-				</div>
-
-				<!-- メールアドレス -->
-				<div class="form-group row">
-					<label class="col-md-3 col-form-label" for="zipcode"> <span
-						class="required">必須</span> <span>メールアドレス</span>
-					</label>
-					<div class="form-group col-md-7">
-
-						<small class="control-label" th:errors="*{email}"
-							style="color: red;"> </small> <input type="text"
-							id="entry_email_first" name="email" class="form-control"
-							size="60" th:field="*{email}" />
-					</div>
-				</div>
-
-				<!-- パスワード -->
-				<div class="form-group row">
-					<label class="col-md-3 col-form-label" for="zipcode"> <span
-						class="required">必須</span> <span>パスワード</span>
-					</label>
-					<div class="form-group col-md-7">
-
-						<small class="control-label" th:errors="*{password}"
-							style="color: red;"> </small><input type="password" id="password"
-							name="password" placeholder="半角英数字記号8～32文字" class="form-control"
-							size="60" th:field="*{password}" />
-					</div>
-				</div>
-
-				<!-- 確認用パスワード -->
-				<div class="form-group row">
-					<label class="col-md-3 col-form-label" for="confirmPassword">
-						<span class="required">必須</span> <span>確認用パスワード</span>
-					</label>
-					<div class="form-group col-md-7">
-
-						<small class="control-label" th:errors="*{confirmPassword}"
-							style="color: red;"> </small><input type="password"
-							id="confirmPassword" name="confirmPassword"
-							placeholder="半角英数字記号8～32文字" class="form-control" size="30"
-							th:field="*{confirmPassword}" />
-
-					</div>
-				</div>
-				<br>
-
-				<div class="regis-btn">
-					<button type="submit" class="btn btn-light rounded-pill"
-						id="register">登録する</button>
-				</div>
-				<br>
-				<div class="reset-btn">
-					<button type="reset" class="btn btn-light rounded-pill" id="reset">入力内容を削除する</button>
-				</div>
-			</form>
+			</div>
+			<div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"
+				th:style="'background-image: url(' + @{/office/office06.webp} + ');'"></div>
 		</div>
-		<br> <br>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -154,5 +149,4 @@
 	<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 	<script th:src="@{/js/get_address.js}"></script>
 </body>
-
 </html>

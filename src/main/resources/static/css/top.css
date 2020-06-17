@@ -23,7 +23,7 @@ li {
 	margin-left: 36px;
 }
 
-main-nav a {
+.main-nav a {
 	color: #808080;
 }
 
@@ -35,7 +35,7 @@ main-nav a {
 }
 
 .wrapper {
-	max-width: 1100px; /*横幅最大*/
+	max-width: 100%; /*横幅最大*/
 	margin: 0 auto; /*中央に配置*/
 	padding: 0 4%; /*スマートフォン向け余白*/
 }
@@ -45,6 +45,7 @@ main-nav a {
 	overflow: hidden;
 	position: absolute;
 	top: 90px;
+	width: 80%;
 	height: 500px;
 }
 
@@ -128,4 +129,60 @@ main-nav a {
 h2 {
 	text-align: center;
 	margin-top: 100px;
+}
+
+.btn {
+	border: none; /* 枠線を消す */
+	outline: none; /* クリックしたときに表示される枠線を消す */
+	border-radius: 50px;
+	background-color: #993333;
+	color: white;
+}
+
+span.required {
+	background-color: #FF0000;
+	color: #FFFFFF;
+	border-radius: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 80%;
+	margin-left: 10px;
+}
+
+.lr-container {
+	display: flex;
+	justify-content: space-around;
+	margin-right: 30px;
+}
+
+.lr-item {
+	
+}
+
+.line {
+	border-right: medium solid;
+	margin-top: 50px;
+	height: 400px;
+}
+
+.underline {
+	border-bottom: medium solid;
+	border-top-width: 5px;
+	width: 100%;
+}
+
+#register>span {
+	padding-left: 90px;
+	padding-right: 90px;
+}
+
+#reset>span {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+#send>span {
+	padding-left: 50px;
+	padding-right: 50px;
+}
 }

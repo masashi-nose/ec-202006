@@ -31,6 +31,16 @@ public class UserRegisterController {
 	}
 
 	/**
+	 * ログイン画面へ遷移します.
+	 * 
+	 * @return
+	 */
+	@RequestMapping("/toLogin")
+	public String toLoginRegister() {
+		return "login-register";
+	}
+
+	/**
 	 * ユーザー登録画面へ遷移します.
 	 * 
 	 * @return ユーザー登録画面
@@ -75,7 +85,7 @@ public class UserRegisterController {
 		System.out.println("userオブジェクトの中身：" + user);
 
 		userService.insert(user);
-		
+
 		return "register";
 
 	}

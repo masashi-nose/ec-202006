@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * sizeテーブルのエンティティ.
@@ -19,15 +22,19 @@ public class Size {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
 	private Integer id;
 
 	@Column(name = "size")
-	private Integer size;
+	private Integer itemSize;
+
+	@OneToOne
+	@MapsId
+	@Transient
+	private Item item;
 
 	@Override
 	public String toString() {
-		return "Size [id=" + id + ", size=" + size + "]";
+		return "Size [id=" + id + ", itemSize=" + itemSize + ", item=" + item + "]";
 	}
 
 	public Integer getId() {
@@ -38,12 +45,20 @@ public class Size {
 		this.id = id;
 	}
 
-	public Integer getSize() {
-		return size;
+	public Integer getItemSize() {
+		return itemSize;
 	}
 
-	public void setSize(Integer size) {
-		this.size = size;
+	public void setItemSize(Integer itemSize) {
+		this.itemSize = itemSize;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
 	}
 
 }

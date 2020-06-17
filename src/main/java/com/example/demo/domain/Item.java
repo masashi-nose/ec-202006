@@ -1,11 +1,14 @@
 package com.example.demo.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * itemsテーブルのエンティティ
@@ -29,7 +32,7 @@ public class Item {
 	private Integer price;
 
 	@Column(name = "size")
-	private Integer size;
+	private Integer sizeId;
 
 	@Column(name = "image_path")
 	private String imagePath;
@@ -43,11 +46,15 @@ public class Item {
 	@Column(name = "deleted_flag")
 	private boolean deletedFlag;
 
+	@OneToOne(mappedBy = "item", cascade = CascadeType.ALL)
+	@Transient
+	private Size size;
+
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", itemName=" + itemName + ", price=" + price + ", size=" + size + ", imagePath="
+		return "Item [id=" + id + ", itemName=" + itemName + ", price=" + price + ", sizeId=" + sizeId + ", imagePath="
 				+ imagePath + ", categoryId=" + categoryId + ", description=" + description + ", deletedFlag="
-				+ deletedFlag + "]";
+				+ deletedFlag + ", size=" + size + "]";
 	}
 
 	public Integer getId() {
@@ -74,12 +81,12 @@ public class Item {
 		this.price = price;
 	}
 
-	public Integer getSize() {
-		return size;
+	public Integer getSizeId() {
+		return sizeId;
 	}
 
-	public void setSize(Integer size) {
-		this.size = size;
+	public void setSizeId(Integer sizeId) {
+		this.sizeId = sizeId;
 	}
 
 	public String getImagePath() {
@@ -112,6 +119,14 @@ public class Item {
 
 	public void setDeletedFlag(boolean deletedFlag) {
 		this.deletedFlag = deletedFlag;
+	}
+
+	public Size getSize() {
+		return size;
+	}
+
+	public void setSize(Size size) {
+		this.size = size;
 	}
 
 }
