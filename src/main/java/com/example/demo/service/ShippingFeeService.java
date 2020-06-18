@@ -16,8 +16,13 @@ public class ShippingFeeService {
 
 	@Autowired
 	private ShippingFeeRepository shippingFeeRepository;
-	
-	public List<ShippingFee> showAllShippingFee(){
+
+	/**
+	 * 送料データを全件表示します。
+	 * 
+	 * @return
+	 */
+	public List<ShippingFee> showAllShippingFee() {
 		return shippingFeeRepository.findAll();
 	}
 }
