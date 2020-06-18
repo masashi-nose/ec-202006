@@ -52,10 +52,10 @@
 		<br>
 		<div class="item-container">
 			<div th:each="item:${itemList}" class="item">
-				<a th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
+				<a th:href="@{'/detail(id=${item.id})}"> <img alt=""
 					th:src="@{'/arts/'+${item.imagePath}}" class="rounded" width="200"
 					height="168">
-				</a> <a th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""
+				</a> <a th:href="@{/detail(id=${item.id})}"> <img alt=""
 					th:src="@{'/book/'+${item.imagePath}}" class="rounded " width="200"
 					height="168">
 				</a> <a th:href="@{'/detail?id='+ ${item.id}}"> <img alt=""

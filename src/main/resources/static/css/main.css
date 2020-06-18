@@ -71,8 +71,26 @@ a:hover {
 .cart-btn {
 	border: none; /* 枠線を消す */
 	outline: none; /* クリックしたときに表示される枠線を消す */
-	border-radius: 50px;
 	background-color: #993333;
+}
+
+.cart-btn-text {
+	padding-left: 90px;
+	padding-right: 90px;
+}
+
+.back-btn {
+	
+}
+
+.back-btn-text {
+	color: black;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+.back-form {
+	margin-top: 10px;
 }
 
 .cart-icon {
@@ -84,6 +102,22 @@ a:hover {
 .detail-img {
 	width: 500px;
 	height: 380px;
+}
+
+.category-item {
+	padding: 45px;
+}
+
+.block {
+	margin-top: 50px;
+}
+
+#total-price {
+	font-size: 40px;
+}
+
+.yen {
+	font-size: 30px;
 }
 
 /*ログイン画面*/
@@ -174,7 +208,25 @@ a:hover {
 
 
 
+
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
+
 
 
 
@@ -242,6 +294,24 @@ input
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :not
 
 
@@ -265,7 +335,25 @@ input
 
 
 
+
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
+
 
 
 
@@ -312,7 +400,25 @@ input
 
 
 
+
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
+
 
 
 
@@ -382,7 +488,34 @@ padding-top
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :
+
+
+
+
+
+
+
+
+
 
 
 
@@ -428,7 +561,34 @@ padding-top
 
 
 
+
+
+
+
+
+
+
+
+
 calc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -517,8 +677,44 @@ var
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 (-
 -input-padding-y
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -610,8 +806,44 @@ var
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 (-
 -input-padding-y
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -680,7 +912,25 @@ var
 
 
 
+
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
+
 
 
 
@@ -749,7 +999,34 @@ padding-bottom
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :
+
+
+
+
+
+
+
+
+
 
 
 
@@ -795,7 +1072,34 @@ padding-bottom
 
 
 
+
+
+
+
+
+
+
+
+
 calc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -884,8 +1188,44 @@ var
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 (-
 -input-padding-y
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -965,7 +1305,6 @@ supports (-ms-ime-align: auto ) { .form-label-group>label {
 }
 
 /*登録画面*/
-
-#get_address_btn{
-	border-radius: 20px;	
+#get_address_btn {
+	border-radius: 20px;
 }

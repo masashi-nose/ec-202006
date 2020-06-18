@@ -67,9 +67,11 @@
 				<br>
 				<div class="item-price">
 					<small>消費税込</small>&nbsp;&nbsp;<span
-						th:text="${#numbers.formatInteger(item.price, 1, 'COMMA') + '円'}"></span>
+						th:text="${#numbers.formatInteger(item.price, 1, 'COMMA')}"
+						id="item-price"></span>円
 				</div>
-				<br>
+				<br> <small class="item-size">商品サイズ</small>&nbsp;&nbsp;<span
+					th:text="${item.sizeId}"></span> <br><br>
 				<div class="item-quantity">
 					<small>数量</small>&nbsp;&nbsp; <select>
 						<option value="1">1</option>
@@ -85,9 +87,27 @@
 					</select>
 				</div>
 				<br>
-
-				<button type="button" class="btn btn-primary" data-toggle="modal"
-					data-target="#exampleModal">送料を確認する</button>
+				
+				<div class="item-delivery">
+					<small>お届け先エリア</small>	
+					<select>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				
+				
+				</div>
+				
+				<button type="button" class="btn btn-outline-secondary btn-sm"
+					data-toggle="modal" data-target="#exampleModal">送料を確認する</button>
 
 				<!-- モーダルの設定 -->
 				<div class="modal fade" id="exampleModal" tabindex="-1"
@@ -120,57 +140,82 @@
 				</div>
 				<!-- /.modal -->
 
+				<div class="block">
+					<div class="total_price">
+						<p>
+							<small>合計金額：</small><span id="total-price"></span><span
+								class="yen">円</span>
+						</p>
 
-				<button type="submit" class="cart-btn">
-					<span class="btn-text"><img alt=""
-						src="../static/cart-white.png" th:src="@{/cart-white.png}"
-						class="cart-icon">&nbsp;&nbsp;カートに入れる</span>
-				</button>
+					</div>
+					<button type="submit" class="cart-btn btn-login">
+						<span class="btn-text cart-btn-text"><img alt=""
+							src="../static/cart-white.png" th:src="@{/cart-white.png}"
+							class="cart-icon">&nbsp;&nbsp;カートに入れる</span>
+					</button>
+
+					<form action="list.html" th:action="@{/}" class="back-form">
+						<button type="submit"
+							class="back-btn btn-login page-link.text-dark.d-inline-block">
+							<span class="btn-text back-btn-text">商品一覧へ戻る</span>
+						</button>
+					</form>
+
+
+
+				</div>
 			</div>
 		</div>
 	</div>
+	<br>
+	<br>
 
 
-
+	<div class="container">
+		<hr>
+	</div>
 
 	<br>
-	<h2 class="container">関連商品</h2>
 	<br>
-	<div class="container category-container wrapper">
-		<div class="category-item" th:each="categoryItem:${categoryItemList}">
+	<h2 class="container" style="text-align: center;">関連商品</h2>
+	<br>
+	<div class="container category-container ">
+		<div class="row">
+			<div class="category-item col-lg-4 col-xs-6"
+				th:each="categoryItem:${categoryItemList}">
 
-			<a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-				th:src="@{'/arts/'+${categoryItem.imagePath}}" class="rounded"
-				width="200" height="168">
-			</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-				th:src="@{'/book/'+${categoryItem.imagePath}}" class="rounded "
-				width="200" height="168">
-			</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-				th:src="@{'/clothing/'+${categoryItem.imagePath}}" class="rounded "
-				width="200" height="168" th:href="@{'/detail' + ${item.id}}"></a>
-			<a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-				th:src="@{'/daily/'+${categoryItem.imagePath}}" class="rounded"
-				width="200" height="168">
-			</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-				th:src="@{'/electronics/'+${categoryItem.imagePath}}"
-				class="rounded " width="200" height="168"></a> <a
-				th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-				th:src="@{'/food/'+${categoryItem.imagePath}}" class="rounded "
-				width="200" height="168"></a> <a
-				th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-				th:src="@{'/furniture/'+${categoryItem.imagePath}}" class="rounded "
-				width="200" height="168">
-			</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-				th:src="@{'/office/'+${categoryItem.imagePath}}" class="rounded "
-				width="200" height="168"></a> <a
-				th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
-				th:src="@{'/toy/'+${categoryItem.imagePath}}" class="rounded "
-				width="200" height="168">
-			</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}">
-				<div th:text="${categoryItem.itemName}" class="itemlist-name"></div>
-			</a>
+				<a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+					th:src="@{'/arts/'+${categoryItem.imagePath}}" class="rounded"
+					width="200" height="168">
+				</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+					th:src="@{'/book/'+${categoryItem.imagePath}}" class="rounded "
+					width="200" height="168">
+				</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+					th:src="@{'/clothing/'+${categoryItem.imagePath}}" class="rounded "
+					width="200" height="168" th:href="@{'/detail' + ${item.id}}"></a>
+				<a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+					th:src="@{'/daily/'+${categoryItem.imagePath}}" class="rounded"
+					width="200" height="168">
+				</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+					th:src="@{'/electronics/'+${categoryItem.imagePath}}"
+					class="rounded " width="200" height="168"></a> <a
+					th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+					th:src="@{'/food/'+${categoryItem.imagePath}}" class="rounded "
+					width="200" height="168"></a> <a
+					th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+					th:src="@{'/furniture/'+${categoryItem.imagePath}}"
+					class="rounded " width="200" height="168">
+				</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+					th:src="@{'/office/'+${categoryItem.imagePath}}" class="rounded "
+					width="200" height="168"></a> <a
+					th:href="@{'/detail?id='+ ${categoryItem.id}}"> <img alt=""
+					th:src="@{'/toy/'+${categoryItem.imagePath}}" class="rounded "
+					width="200" height="168">
+				</a> <a th:href="@{'/detail?id='+ ${categoryItem.id}}">
+					<div th:text="${categoryItem.itemName}" class="itemlist-name"></div>
+				</a>
 
-
+			</div>
 		</div>
 
 
@@ -193,5 +238,6 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+	<script type="text/javascript" th:src="@{/js/auto_calc.js}"></script>
 </body>
 </html>

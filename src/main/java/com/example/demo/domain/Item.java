@@ -3,6 +3,7 @@ package com.example.demo.domain;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,8 +47,7 @@ public class Item {
 	@Column(name = "deleted_flag")
 	private boolean deletedFlag;
 
-	@OneToOne(mappedBy = "item", cascade = CascadeType.ALL)
-	@Transient
+	@OneToOne(mappedBy = "item", fetch = FetchType.EAGER)
 	private Size size;
 
 	@Override
